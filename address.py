@@ -1,3 +1,4 @@
+#! /usr/bin/python
 import urllib, sys, os, string
 
 # sys.argv[1] is the domain
@@ -29,16 +30,15 @@ if m: # perform mutations
 	words = f.readlines()
 	f.close()
 	print "File read."
-	print str(len(words)) + " words from scrapping."
+	print str(len(words)) + " words from scraping."
 	out = words[:]
 	"Numbers appended."
 	for word in words:
-		for num in (range(0,100) + range(1900,2015)):
+		for num in range(0,10000):
 			out += [word[:-1] + str(num) + "\n"]
 	words = out[:]
 	print str(len(words)) + " words from first round mutations."
 	for word in out:
-		words += [string.upper(word)]
 		words += [string.capitalize(word)]
 	print str(len(words)) + " words from second round mutations."
 	print "Writing to file."
